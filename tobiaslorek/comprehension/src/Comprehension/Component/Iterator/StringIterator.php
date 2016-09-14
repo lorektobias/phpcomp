@@ -1,6 +1,6 @@
 <?php
 
-namespace Comprehension\Component\Iterartor;
+namespace Comprehension\Component\Iterator;
 
 /**
  * Class StringIterator

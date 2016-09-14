@@ -3,35 +3,65 @@ use \Comprehension\Component\Iterator\StringIterator;
 
 class StringIteratorTest extends \PHPUnit_Framework_TestCase
 {
+	private $string = "init";
 	public function test__construct()
 	{
-		//Write Test
+		$init = "init";
+		$st = new StringIterator($this->init);
+		return $st;
 	}
 
-	public function testnext()
+	/**
+	 * @depends testkey
+	 */
+	public function testnext(StringIterator $st)
 	{
-		//Write Test
+		$st->next();
+		$this->assertEquals($st->current(), "n", "secont char of init should be n");
+		return $st;
 	}
 
-	public function testkey()
+	/**
+	 * @depends testcurrent
+	 */
+	public function testkey(StringIterator $st)
 	{
-		//Write Test
+		$this->assertEquals($st->key, 0, "first key should be 0");
+		return $st;
 	}
 
-	public function testcurrent()
+	/**
+	 * @depends test__construct
+	 */
+	public function testcurrent(StringIterator $st)
 	{
-		//Write Test
+		$this->assertEquals($st->current(), "i", "first letter of init should be i");
+		return $st;
 	}
 
-	public function testvalid()
+
+	/**
+	 * @depends testnext
+	 */
+	public function testvalid(StringIterator $st)
 	{
-		//Write Test
+		$this->assertEquals($st->valid(), true, "second val should be valid");
+		$st->next();
+		$st->next();
+		$st->next();
+		$this->assertEquals($st->valid(), false, "fifth val should not be valid");
+		return $st;
 	}
 
-	public function testrewind()
+	/**
+	 * @depends testvalid
+	 */
+	public function testrewind(StringIterator $st)
 	{
-		//Write Test
+		$st->rewind();
+		$this->assertEquals($st->current(), "i", "first letter of init should be i");
+		$this->init = "sec";
+		$this->assertEquals($st->current(), "s", "first letter of sec should be s");
 	}
-
 }
 
