@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+for file in ./*/**/*.php; do
+	pf=${${file#./src}:h}
+	tp="tests$pf"
+	cl="${file:t:r}"
+	testClass="${cl}Test"
+	newfile="$tp/$testClass.php"
+	mkdir -p $tp
+	namespace=`echo $pf | sed 's./.\\\.g'`
+	cat << EOF > $newfile
+<?php
+use $namespace\\$cl;
+
+class $testClass extends \PHPUnit_Framework_TestCase
+{
+EOF
+	for pub in `sed -n 's/.*public function \([^\ (]*\).*/\1/p' $file`; do
+		echo "\tpublic function test${pub}()\n\t{\n\t\t//Write Test\n\t}\n" >> $newfile
+	done
+	echo "}\n" >> $newfile
+done
+
