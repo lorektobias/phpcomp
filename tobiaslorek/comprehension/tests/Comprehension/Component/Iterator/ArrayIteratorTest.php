@@ -20,35 +20,5 @@ class ArrayIteratorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($ai->valid(), false, "past end of array should be invalid");
 	}
 
-	public function testkey()
-	{
-		//Write Test
-	}
-
-	public function testnext()
-	{
-		//Write Test
-	}
-
-	public function testcurrent()
-	{
-		//Write Test
-	}
-
-	public function testvalid()
-	{
-		//Write Test
-	}
-
-	public function testrewind()
-	{
-		//Write Test
-	}
-
-	public function testcontains()
-	{
-		//Write Test
-	}
-
 }
 

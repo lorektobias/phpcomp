@@ -37,7 +37,7 @@ class StringIterator
 	 */
 	public function current()
 	{
-		if ($this->valid) {
+		if ($this->valid()) {
 			return $this->string[$this->ind];
 		} else {
 			return false;

@@ -3,7 +3,7 @@
 namespace Comprehension\Component\Collection;
 
 /**
- * Class ContainerAtVar
+ * Class ContainerAt
  * @author Tobias Lorek
  */
 class CollectionAt

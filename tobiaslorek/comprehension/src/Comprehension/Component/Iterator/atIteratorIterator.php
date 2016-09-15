@@ -1,6 +1,9 @@
 <?php
+namespace Comprehension\Component\Iterator;
 
-class atIteratorIterator implements \Iterator, Contains
+use Comprehension\Component\Collection\CollectionAt;
+
+class atIteratorIterator implements \Iterator
 {
 	private $collection;
 	/**

@@ -6,8 +6,7 @@ class StringIteratorTest extends \PHPUnit_Framework_TestCase
 	private $string = "init";
 	public function test__construct()
 	{
-		$init = "init";
-		$st = new StringIterator($this->init);
+		$st = new StringIterator($this->string);
 		return $st;
 	}
 
